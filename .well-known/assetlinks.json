@@ -1,0 +1,26 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.anonymous.doctornetwork",
+            "sha256_cert_fingerprints": [
+                "2A:6B:E8:FC:E4:3C:8A:C9:CA:83:37:AC:6E:6E:30:52:F8:74:5C:0D:91:77:AF:87:84:9C:D7:B4:46:BA:A6:22"
+            ]
+        }
+    },
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.doctornetwork.doctorassitant",
+            "sha256_cert_fingerprints": [
+                "6B:14:14:B8:C3:BB:92:BD:74:8A:BA:EF:20:76:D7:7B:18:6D:EC:8F:6F:CF:E7:CB:B5:10:54:E9:2F:E1:6F:3C"
+            ]
+        }
+    }
+]

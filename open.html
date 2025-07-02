@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mở ứng dụng DoctorNetwork</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 2rem; }
+    button { padding: 1rem 2rem; font-size: 18px; border: none; border-radius: 8px; background: #007BFF; color: white; }
+  </style>
+</head>
+<body>
+  <h1>Tiếp tục trong ứng dụng DoctorNetwork</h1>
+  <p>Nhấn nút bên dưới để mở ứng dụng</p>
+  <button onclick="openApp()">Mở ứng dụng</button>
+
+  <script>
+    const roomId = new URLSearchParams(location.search).get("id") || "";
+    const from = new URLSearchParams(location.search).get("from") || "";
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const isAndroid = /android/i.test(navigator.userAgent);
+
+    function openApp() {
+      const scheme = `doctornetwork://rooms?id=${roomId}&from=${from}`;
+      const intent = `intent://rooms?id=${roomId}&from=${from}#Intent;scheme=doctornetwork;package=com.dev.doctornetwork;end`;
+      const fallback = isIOS
+        ? "https://apps.apple.com/app/id1671676828"
+        : "https://play.google.com/store/apps/details?id=com.dev.doctornetwork";
+
+      const now = Date.now();
+      location.href = isAndroid ? intent : scheme;
+
+      setTimeout(() => {
+        if (Date.now() - now < 1500) location.href = fallback;
+      }, 1200);
+    }
+  </script>
+</body>
+</html>
